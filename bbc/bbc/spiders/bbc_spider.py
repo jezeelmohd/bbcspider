@@ -18,6 +18,7 @@ class BBCspider(CrawlSpider):
 	name ='bbc'
 	start_urls = ['http://www.bbc.co.uk/news/']
 	allowed_domains = ['bbc.co.uk']
+	items_count = 0
 
 	rules = (
 		Rule(SgmlLinkExtractor(allow=('bbc.co.uk\/news\/.+')),follow=True,callback='parse_news'),
@@ -29,9 +30,12 @@ class BBCspider(CrawlSpider):
 		XPATH_POST='//*[@id="main-content"]/div[2]/div[1]//p/text()'
 		title = sel.xpath(XPATH_TITLE).extract()
 		post = ' '.join(sel.xpath(XPATH_POST).extract())
+		self.items_count +=1
 		item = BbcItem(
 			url=response.url,
 			title=title,
 			post=post,
+			item_count=self.items_count,
 			)
+
 		yield item

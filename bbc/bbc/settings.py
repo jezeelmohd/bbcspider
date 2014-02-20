@@ -13,3 +13,6 @@ NEWSPIDER_MODULE = 'bbc.spiders'
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'bbc (+http://www.yourdomain.com)'
+DOWNLOADER_MIDDLEWARES = {
+    'scrapy.contrib.downloadermiddleware.httpcache.HttpCacheMiddleware': 300,
+}

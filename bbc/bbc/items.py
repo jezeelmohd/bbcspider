@@ -9,3 +9,4 @@ class BbcItem(Item):
 	url = Field()
 	title = Field()
 	post = Field()
+	item_count = Field()
