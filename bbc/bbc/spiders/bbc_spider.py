@@ -23,4 +23,7 @@ class BBCspider(CrawlSpider):
 		)
 
 	def parse_news(self,response):
-		print '>>>>>>>>',response.url
+		XPATH_TITLE='//*[@id="main-content"]/div[2]/div[1]/h1/text()'
+		XPATH_POST='//*[@id="main-content"]/div[2]/div[1]//p/text()'
+		title = sel.xpath(XPATH_TITLE).extract()
+		post = sel.xpath(XPATH_POST).extract()
