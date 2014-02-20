@@ -29,6 +29,7 @@ class BBCspider(CrawlSpider):
 		XPATH_TITLE='//*[@id="main-content"]/div[2]/div[1]/h1/text()'
 		XPATH_POST='//*[@id="main-content"]/div[2]/div[1]//p/text()'
 		title = sel.xpath(XPATH_TITLE).extract()
+		title = title[0] if title else None
 		post = ' '.join(sel.xpath(XPATH_POST).extract())
 		self.items_count +=1
 		item = BbcItem(
