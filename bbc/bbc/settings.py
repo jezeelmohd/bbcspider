@@ -10,9 +10,10 @@ BOT_NAME = 'bbc'
 
 SPIDER_MODULES = ['bbc.spiders']
 NEWSPIDER_MODULE = 'bbc.spiders'
-
+HTTPCACHE_ENABLED=True
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'bbc (+http://www.yourdomain.com)'
 DOWNLOADER_MIDDLEWARES = {
-    'scrapy.contrib.downloadermiddleware.httpcache.HttpCacheMiddleware': 300,
+	'scrapy.contrib.downloadermiddleware.httpcache.HttpCacheMiddleware': 300,
 }
+HTTPCACHE_DIR='/home/tony/Desktop/bbc/cache'
